@@ -7,5 +7,5 @@ import (
 func main() {
 	// Serve the entire "web" folder
 	http.Handle("/", http.FileServer(http.Dir("./web")))
-	http.ListenAndServe(":8081", nil)
+	http.ListenAndServe(":8082", nil)
 }
