@@ -1,3 +1,30 @@
+.container {
+    width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Pacifico', cursive;
+    color: #C84127;
+}
+
+body {
+    background-color: #FEFCE8;
+}
+
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline:none;
+}
+
+.message-input {
+    position: fixed;
+    bottom: 20%;
+    width:
+}
 
 
 
