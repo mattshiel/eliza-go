@@ -1,0 +1,45 @@
+body {
+    background-color: #FEFCE8;   
+}
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Pacifico', cursive;
+    color: #C84127;
+    margin-top: 60px;
+}
+
+#output-area {
+    height: 100px;
+    background-color: #FEFCE8;   
+    border: none;   
+    list-style: none; 
+}
+
+ul {
+    display: block;
+    /* This is so the list does not overflow the div and has a scrolling bar */
+    overflow: auto;
+}
+
+li {
+    background-color: #67C5C2;
+    color: #3D2117;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: Bold;
+    padding: 7px 13px; 
+    margin-bottom: 12px;
+    border-radius: 15px;   
+    float: left;
+    clear: both;
+}
+
+ul > li:nth-child(odd){
+    float: right;
+    background-color: #3D2117;
+    color: white;
+}​
