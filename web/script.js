@@ -1,3 +1,4 @@
+// Author: Matthew Shiel
 $("#user-input-form").submit(
     function (event) {
         event.preventDefault();

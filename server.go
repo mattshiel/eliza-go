@@ -26,5 +26,5 @@ func main() {
 
 	// Handles the user input and return of Eliza's answers
 	http.HandleFunc("/user-input", inputhandler)
-	http.ListenAndServe(":8093", nil)
+	http.ListenAndServe(":8080", nil)
 }
