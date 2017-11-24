@@ -1,4 +1,4 @@
-
+// Author: Matthew Shiel
 package main
 
 import (
@@ -8,7 +8,8 @@ import (
 )
 
 func inputhandler(w http.ResponseWriter, r *http.Request) {
-	question := r.URL.Query().Get("value") // Extract question from GET request
+	// Extract question from GET request
+	question := r.URL.Query().Get("value") 
 
 	// Return Eliza's response's so long as the user doesn't give a quit statement
 	answer := eliza.ReplyTo(question)
@@ -19,9 +20,11 @@ func inputhandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// Adapted from https://ianmcloughlin.github.io
+	// Serves the web file
 	fs := http.FileServer(http.Dir("web"))
 	http.Handle("/", fs)
 
+	// Handles the user input and return of Eliza's answers
 	http.HandleFunc("/user-input", inputhandler)
-	http.ListenAndServe(":8087", nil)
+	http.ListenAndServe(":8092", nil)
 }

@@ -14,10 +14,14 @@ body {
 }
 
 #output-area {
-    height: 300px;
+    height: 370px;
     background-color: #FEFCE8;   
-    border: none;   
+    border: none; 
     list-style: none; 
+}
+
+#user-input {
+    border: 2px solid #C84127;
 }
 
 ul {
@@ -44,4 +48,9 @@ ul > li:nth-child(odd) {
     float: right;
     background-color: #3D2117;
     color: white;
+}
+
+button {
+    /* Hide the submit button */
+    visibility: hidden; 
 }
