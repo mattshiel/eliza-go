@@ -25,7 +25,7 @@ eg. > cd Eliza-Go
 **2. Compile the Chatbot**
 
 ```bash
-> go build eliza.go
+> go build server.go
 ```
 
 **3. Run the Chatbot**
@@ -33,7 +33,16 @@ eg. > cd Eliza-Go
 ```bash
 To run the chatbot enter './' followed by the executable produced
 For Mac:
-> ./eliza
+> ./server
 For Windows:
-> ./eliza.go.exe
+> ./server.go.exe
+
+Alternatively:
+> go run server.go
+```
+
+**4. Open the localhost**
+```bash
+Go to your browser and type:
+> 127.0.0.1:8080
 ```
