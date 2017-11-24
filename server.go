@@ -4,18 +4,25 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"./eliza"
 )
 
-func userinputhandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Wait, %s!", r.URL.Query().Get("value")) //.Path[1:])
+func inputhandler(w http.ResponseWriter, r *http.Request) {
+	question := r.URL.Query().Get("value") // Extract question from GET request
+
+	// Create Eliza's response
+	answer := eliza.GenerateAnswer(question)
+
+	// Return the response
+	fmt.Fprintf(w,"%s",answer)
 }
 
 func main() {
 
-	// Adapted https://ianmcloughlin.github.io
-	fs := http.FileServer(http.Dir("static"))
+	// Adapted from https://ianmcloughlin.github.io
+	fs := http.FileServer(http.Dir("web"))
 	http.Handle("/", fs)
 
-	http.HandleFunc("/user-input", userinputhandler)
-	http.ListenAndServe(":8989", nil)
+	http.HandleFunc("/user-input", inputhandler)
+	http.ListenAndServe(":8083", nil)
 }

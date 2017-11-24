@@ -14,7 +14,7 @@ body {
 }
 
 #output-area {
-    height: 100px;
+    height: 300px;
     background-color: #FEFCE8;   
     border: none;   
     list-style: none; 
@@ -35,11 +35,13 @@ li {
     margin-bottom: 12px;
     border-radius: 15px;   
     float: left;
+    /* Clear so messages on the left and right seperate */
     clear: both;
 }
 
-ul > li:nth-child(odd){
+/* For every second list item float right */
+ul > li:nth-child(odd) {
     float: right;
     background-color: #3D2117;
     color: white;
-}​
+}

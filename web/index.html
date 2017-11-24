@@ -51,6 +51,11 @@
         $("#user-input-form").submit(
             function (event) {
                 event.preventDefault();
+
+                var question = $('#user-input').val()
+
+                $("#output-area").append('<li>' + question + '</li>');
+
                 $.get('/user-input', {
                         value: $('#user-input').val()
                     })
@@ -58,8 +63,8 @@
 
                         addListItem(data);
 
-                        function addListItem(question) {
-                            $("#output-area").append('<li>' + question + '</li>');
+                        function addListItem(input) {
+                            $("#output-area").append('<li>' + input + '</li>');
                             $('#output-area').animate({
                                 scrollTop: $('#output-area').prop("scrollHeight")
                             }, 300);
