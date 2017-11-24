@@ -4,17 +4,16 @@ package eliza
 
 // Introductions is a list of introduction sentences for ELIZA.
 var Introductions = []string{
-    "Hello, my name is Eliza, How are you feeling today?",
-    "How do you do. Please tell me your problem.",
+    "Hello, How are you feeling today?",
+    "How do you do. Are you seeking help today?",
     "Please tell me what's been bothering you.",
 	"Is something troubling you?",
-	"Hi, my name is Eliza",
 }
 
 // Goodbyes is a list of goodbye sentences for ELIZA.
 var Goodbyes = []string{
     "Farewell. It was lovely speaking with you.",
-    "Thank you for talking with me.",
+    "Thank you for talking with me today.",
     "Thank you, that will be $150. Have a good day!",
     "Goodbye. This was nice, hopefully we do it again sometime.",
     "Goodbye. I'm looking forward to our next session.",
@@ -41,6 +40,12 @@ var Psychobabble = map[string][]string{
         "If you could %s, what would you do?",
         "I don't know -- why can't you %s?",
         "Have you really tried?",
+	},
+	`^eliza`: {
+        "That's the name, therapy is my game",
+        "Yes?",
+        "That's me",
+        "Ah so you remember my name",
     },
     `i can'?t (.*)`: {
         "How do you know you can't %s?",
@@ -93,6 +98,11 @@ var Psychobabble = map[string][]string{
         "Hello... I'm glad you could drop by today.",
         "Hi there... how are you today?",
         "Hello, how are you feeling today?",
+	},
+	`^hey(.*)`: {
+        "Hello... I'm glad you could drop by today.",
+        "Hi there... how are you today?",
+        "Hello, how are you feeling today?",
     },
     `^thanks(.*)`: {
         "You're welcome!",
@@ -137,7 +147,19 @@ var Psychobabble = map[string][]string{
         "Perhaps it's %s -- what do you think?",
         "If it were %s, what would you do?",
         "It could well be that %s.",
-    },
+	},
+	`(.*) I guess (.*)`: {
+        "You guess?",
+		"So are you not sure?",
+		"You don't sound very sure about that",
+		"You sound hesitant, are you sure abou that?",
+		"Do you really believe that yourself?",
+	},
+	`my (.*) was (.*)`: {
+		"Your %s is %s?",
+		"Did I hear that correctly, your %s is %s?",
+		"How do you feel about that?",
+	},
     `it is (.*)`: {
         "You seem very certain.",
         "If I told you that it probably isn't %s, what would you feel?",
@@ -162,9 +184,10 @@ var Psychobabble = map[string][]string{
         "Perhaps you're really talking about yourself?",
     },
     `you'?re (.*)`: {
-        "Why do you say I am %s?",
+        "Why do you say I'm %s?",
         "Why do you think I am %s?",
-        "Are we talking about you, or me?",
+		"Are we talking about you, or me?",
+		"Haha very funny..",
     },
     `i don'?t (.*)`: {
         "Don't you really %s?",
@@ -176,7 +199,13 @@ var Psychobabble = map[string][]string{
         "Do you often feel %s?",
         "When do you usually feel %s?",
         "When you feel %s, what do you do?",
-    },
+	},
+	`i (hate|loathe|detest|dislike|despise) (.*)`: {
+		"Why do you %s %s?",
+		"Are you just saying you %s %s?",
+		"How long have you been feeling this way?",
+		"I'm sorry to hear that, when did these feelings begin?",
+	},
     `i have (.*)`: {
         "Why do you tell me that you've %s?",
         "Have you really %s?",
@@ -199,8 +228,8 @@ var Psychobabble = map[string][]string{
     },
     `you (.*)`: {
         "We should be discussing you, not me.",
-        "Why do you say that about me?",
-        "Why do you care whether I %s?",
+        "We're talking about you not me remember?",
+        "Look, I'd rather that we talk about you",
     },
     `why (.*)`: {
         "Why don't you tell me the reason why %s?",
@@ -245,10 +274,12 @@ var Psychobabble = map[string][]string{
 // these default responses
 var DefaultResponses = []string{
     "Please tell me more.",
-    "Let's change focus a bit... Tell me about your family.",
+	"Alright. Let's change focus a bit... Can you tell me about your family?",
+	"Tell me, how is your relationship with your father?",
+	"Do you get along with your mother?",
     "Can you elaborate on that?",
-    "I see.",
-    "Very interesting.",
+    "I see. Please go on.",
+    "Very interesting... ",
     "I see. And what does that tell you?",
     "How does that make you feel?",
     "How do you feel when you say that?",
@@ -261,6 +292,8 @@ var QuitResponses = []string{
     "quit",
     "exit",
 }
+
+
 
 // ReflectedWords is a table to reflect words in question fragments inside the response.
 // For example, the phrase "your jacket" in "I want your jacket" should be 
