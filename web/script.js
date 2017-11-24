@@ -3,10 +3,15 @@ $("#user-input-form").submit(
         event.preventDefault();
 
         // Store input in a variable
-        var question = $('#user-input').val()
+        var question = $('#user-input').val().trim() // Remove whitespace
 
         // Clear the input box
         $('#user-input').val("");
+
+        // If the user doesn't input anything return nothing
+        if (!question) {
+            return;
+        }
 
         // Append the user's question to the list and clear input
         $("#output-area").append('<li>' + question + '</li>');

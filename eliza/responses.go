@@ -126,7 +126,7 @@ var Psychobabble = map[string][]string{
 		"Hello, how are you feeling today?",
 		"Hello, Is something troubling you?",
 	},
-	`^yo(.*)`: {
+	`^yo$`: {
 		"Hello... I'm glad you could drop by today.",
 		"Hi there... how are you today?",
 		"Hello, how are you feeling today?",
