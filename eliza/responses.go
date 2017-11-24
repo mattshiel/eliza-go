@@ -4,22 +4,23 @@ package eliza
 
 // Introductions is a list of introduction sentences for ELIZA.
 var Introductions = []string{
-    "Hello. How are you feeling today?",
+    "Hello, my name is Eliza, How are you feeling today?",
     "How do you do. Please tell me your problem.",
     "Please tell me what's been bothering you.",
-    "Is something troubling you?",
+	"Is something troubling you?",
+	"Hi, my name is Eliza",
 }
 
 // Goodbyes is a list of goodbye sentences for ELIZA.
 var Goodbyes = []string{
-    "Goodbye. It was nice talking to you.",
+    "Farewell. It was lovely speaking with you.",
     "Thank you for talking with me.",
     "Thank you, that will be $150. Have a good day!",
-    "Goodbye. This was really a nice talk.",
+    "Goodbye. This was nice, hopefully we do it again sometime.",
     "Goodbye. I'm looking forward to our next session.",
-    "This was a good session, wasn't it – but time is over now. Goodbye.",
+    "Well.. I guess time is up, call back anytime!",
     "Maybe we could discuss this over more in our next session? Goodbye.",
-    "Good-bye.",
+	"Ciao",
 }
 
 // Psychobabble may be slightly non-deterministic, since map iteration may be out

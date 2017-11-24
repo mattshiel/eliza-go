@@ -54,24 +54,34 @@
 
                 var question = $('#user-input').val()
 
+                // Clear the input box
+                $('#user-input').val("");
+
+                // Append the user's question to the list and clear input
                 $("#output-area").append('<li>' + question + '</li>');
 
+                // scroll to the bottom of the messages
+                $('#output-area').animate({
+                    scrollTop: $('#output-area').prop("scrollHeight")
+                }, 300);
+
                 $.get('/user-input', {
-                        value: $('#user-input').val()
+                        value: question
                     })
                     .done(function (data) {
-
-                        addListItem(data);
-
-                        function addListItem(input) {
-                            $("#output-area").append('<li>' + input + '</li>');
-                            $('#output-area').animate({
-                                scrollTop: $('#output-area').prop("scrollHeight")
-                            }, 300);
-
-                        }
+                        // Set a timeout to make Eliza seem like she's thinking
+                        setTimeout(() => {
+                            addListItem(data);
+                        }, 3000);
                     })
             });
+
+        function addListItem(input) {
+            $("#output-area").append('<li>' + input + '</li>')
+            $('#output-area').animate({
+                scrollTop: $('#output-area').prop("scrollHeight")
+            }, 300);
+        }
     </script>
 </body>
 
