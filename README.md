@@ -13,13 +13,13 @@ This is my implementation of an Eliza chatbot in Go, based on the Eliza natural 
 
 **1. Clone the Repository**
 ```bash
-> git clone https://github.com/mattshiel/Eliza-Go.git
+> git clone https://github.com/mattshiel/eliza-go.git
 ```
 **2. Change Directory to the Folder**
 
 ```bash
 Open the terminal/command line and navigate into the folder 
-eg. > cd Eliza-Go
+eg. > cd eliza-go
 ```
 
 **2. Compile the Chatbot**
